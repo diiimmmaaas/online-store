@@ -13,13 +13,13 @@ import { Context } from 'context/context';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 const firebaseApp = firebase.initializeApp({
-  apiKey: 'AIzaSyBkBgyI9agYBnZb7cJ9-rOd87Ysp8d5GCw',
-  authDomain: 'online-store-4a966.firebaseapp.com',
-  projectId: 'online-store-4a966',
-  storageBucket: 'online-store-4a966.appspot.com',
-  messagingSenderId: '452378656062',
-  appId: '1:452378656062:web:6deb7c604200713396006f',
-  measurementId: 'G-WKKJ74KTF6',
+  apiKey: 'AIzaSyCuggcmfZQbEFqmeph5bekY5hBUy-MSLSU',
+  authDomain: 'real-chat-e910d.firebaseapp.com',
+  projectId: 'real-chat-e910d',
+  storageBucket: 'real-chat-e910d.appspot.com',
+  messagingSenderId: '23331031174',
+  appId: '1:23331031174:web:c0e8bf2818e3d031d36907',
+  measurementId: 'G-7RECF4JMYD',
 });
 
 const auth = firebase.auth();
