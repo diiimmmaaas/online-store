@@ -1,9 +1,11 @@
 import { createContext } from 'react';
 
-type AppContextType = {
-  firebase: any;
-  auth: any;
-  firestore: any;
+import firebase from 'firebase/compat/app';
+
+export type AppContextType = {
+  firebase: typeof firebase;
+  auth: firebase.auth.Auth;
+  firestore: firebase.firestore.Firestore;
 };
 
 export const Context = createContext<AppContextType | null>(null);

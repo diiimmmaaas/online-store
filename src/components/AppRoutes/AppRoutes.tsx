@@ -4,12 +4,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { CHAT_ROUTE, LOGIN_ROUTE } from 'constants/consts';
-import { Context } from 'context/context';
+import { AppContextType, Context } from 'context/context';
 import { privateRoutes, publicRoutes } from 'routes/routes';
 
 export const AppRoutes = (): any => {
   // @ts-ignore
-  const { auth } = useContext(Context);
+  const { auth } = useContext<AppContextType | null>(Context);
   const [user] = useAuthState(auth);
 
   return user ? (

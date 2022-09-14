@@ -5,11 +5,11 @@ import Box from '@mui/material/Box';
 import firebase from 'firebase/compat/app';
 
 import { navbarSize } from 'constants/consts';
-import { Context } from 'context/context';
+import { AppContextType, Context } from 'context/context';
 
 export const Login = (): any => {
   // @ts-ignore
-  const { auth } = useContext(Context);
+  const { auth } = useContext<AppContextType | null>(Context);
 
   const onLogin = async (): Promise<any> => {
     const provider = new firebase.auth.GoogleAuthProvider();

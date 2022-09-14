@@ -7,11 +7,11 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import { Loader } from 'components/Loader/Loader';
 import { navbarSize } from 'constants/consts';
-import { Context } from 'context/context';
+import { AppContextType, Context } from 'context/context';
 
 export const Chat = (): any => {
   // @ts-ignore
-  const { auth, firestore } = useContext(Context);
+  const { auth, firestore } = useContext<AppContextType | null>(Context);
 
   const [user] = useAuthState(auth);
   const [messages, loading] = useCollectionData(

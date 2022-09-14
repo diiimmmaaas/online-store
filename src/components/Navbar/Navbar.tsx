@@ -8,11 +8,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 
 import { LOGIN_ROUTE } from 'constants/consts';
-import { Context } from 'context/context';
+import { AppContextType, Context } from 'context/context';
 
 export const Navbar = (): any => {
   // @ts-ignore
-  const { auth } = useContext(Context);
+  const { auth } = useContext<AppContextType | null>(Context);
   const [user] = useAuthState(auth);
 
   return (
