@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Button, Container, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
+import firebase from 'firebase/compat/app';
 
 import { navbarSize } from 'constants/consts';
+import { Context } from 'context/context';
 
 export const Login = (): any => {
+  // @ts-ignore
+  const { auth } = useContext(Context);
+
+  const onLogin = async (): Promise<any> => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const { user } = await auth.signInWithPopup(provider);
+
+    console.log(user);
+  };
+
   return (
     <Container>
       <Grid
@@ -21,7 +33,7 @@ export const Login = (): any => {
           style={{ width: '400', background: 'lightgray' }}
         >
           <Box p={5}>
-            <Button>Войти с помощью Google</Button>
+            <Button onClick={onLogin}>Войти с помощью Google</Button>
           </Box>
         </Grid>
       </Grid>

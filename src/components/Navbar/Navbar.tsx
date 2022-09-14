@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Button, Grid } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 
 import { LOGIN_ROUTE } from 'constants/consts';
+import { Context } from 'context/context';
 
 export const Navbar = (): any => {
-  const user = false;
+  // @ts-ignore
+  const { auth } = useContext(Context);
+  const [user] = useAuthState(auth);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -17,7 +21,7 @@ export const Navbar = (): any => {
         <Toolbar variant={'dense'}>
           <Grid container justifyContent={'flex-end'}>
             {user ? (
-              <Button variant={'outlined'} color="inherit">
+              <Button onClick={() => auth.signOut()} variant={'outlined'} color="inherit">
                 Logout
               </Button>
             ) : (
